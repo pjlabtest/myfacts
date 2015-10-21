@@ -1,7 +1,7 @@
 #
 # Cookbook Name:: myfacts
 # Recipe:: default
-#
+# Author:: Pradeep Joshi
 # Copyright (C) 2015 YOUR_NAME
 #
 # All rights reserved - Do Not Redistribute
