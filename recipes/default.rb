@@ -11,7 +11,7 @@ package "curl" do
      action :install
 end
 
-package "apache2" do
+package "apache2"   do
      action :install
 end
 
@@ -29,3 +29,11 @@ cookbook_file "/var/www/html/health.html" do
      source "health.html"
      mode "0644"
 end
+
+cookbook_file '/var/www/html/test.html' do
+  source 'test.html'
+  owner 'root'
+  group 'root'
+  mode '0755'
+end
+

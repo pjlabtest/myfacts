@@ -20,4 +20,10 @@ describe 'myfacts::default' do
     expect(chef_run).to \
       create_cookbook_file('/var/www/html/health.html')
   end
+ 
+  it 'creates test.html' do
+    expect(chef_run).to \
+      create_cookbook_file('/var/www/html/test.html')
+  end
+
 end
