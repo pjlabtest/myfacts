@@ -2,13 +2,43 @@ require 'chefspec'
 require 'chefspec/berkshelf'
 require 'spec_helper'
 
-#Chefspec::converge.start!
-at_exit { ChefSpec::Coverage.report! }
+RSpec.configure do |config|
+  config.environment_path = '/PJ/chef-repo-PJLAB/cookbooks/myfacts/spec/environments'
+end
 
 describe 'myfacts::default' do
-  let(:chef_run) \
-  { ChefSpec::ServerRunner.new.converge(described_recipe) }
-  it 'installs apache2' do
+  let(:chef_run) do
+  #ChefSpec::ServerRunner.new do | node |
+   ChefSpec::SoloRunner.new(platform:'ubuntu', version: '14.04') do |node| 
+   # ChefSpec::ServerRunner.new do | node |
+   # Create a new environment (you could also use a different :let block or :before block)
+    env = Chef::Environment.new
+    env.name 'staging'
+    # Stub the node to return this environment
+    allow(node).to receive(:chef_environment).and_return(env.name)
+
+    # Stub any calls to Environment.load to return this environment
+    allow(Chef::Environment).to receive(:load).and_return(env)
+  end.converge('myfacts::default')
+end
+
+  it 'testing env 1' do
+   expect(chef_run.node.chef_environment).to eq('staging')
+  end
+
+  it 'testing env 2' do
+   expect(chef_run.node.chef_environment).to_not eq('production')
+  end
+  
+  it 'testing env 3' do
+   expect(chef_run.node.platform).to eq('ubuntu')
+  end
+  
+  before do
+    stub_command("grep text /tmp/foo.txt").and_return(true)
+  end
+ 
+ it 'installs apache2' do
     expect(chef_run).to install_package('apache2')
   end 
   it 'creates index.html' do
@@ -24,6 +54,6 @@ describe 'myfacts::default' do
   it 'creates test.html' do
     expect(chef_run).to \
       create_cookbook_file('/var/www/html/test.html')
-  end
-
+  end   
+ 
 end

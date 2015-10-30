@@ -37,3 +37,8 @@ cookbook_file '/var/www/html/test.html' do
   mode '0755'
 end
 
+template '/tmp/foo.txt' do
+  not_if 'grep text /tmp/foo.txt'
+end
+
+
