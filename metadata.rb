@@ -4,5 +4,5 @@ maintainer_email 'pcjoshi9@gmail.com'
 license          'All rights reserved'
 description      'Installs/Configures myfacts'
 long_description 'Installs/Configures myfacts'
-version          '0.10.0'
+version          '0.11.0'
 

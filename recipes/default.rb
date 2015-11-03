@@ -27,7 +27,7 @@ end
 
 cookbook_file "/var/www/html/health.html" do
      source "health.html"
-     mode "0644"
+     mode "0755"
 end
 
 cookbook_file '/var/www/html/test.html' do
