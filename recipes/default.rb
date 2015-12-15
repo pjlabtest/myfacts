@@ -7,6 +7,8 @@
 # All rights reserved - Do Not Redistribute
 #
 
+include_recipe 'apt'
+
 package "curl" do
      action :install
 end
@@ -23,6 +25,14 @@ cookbook_file "/var/www/html/index.html" do
      source "index.html"
      mode "0644"
 end
+
+cookbook_file '/var/www/html/test.html' do
+  source 'test.html'
+  owner 'root'
+  group 'root'
+  mode '0644'
+end
+
 
 
 cookbook_file "/var/www/html/health.html" do

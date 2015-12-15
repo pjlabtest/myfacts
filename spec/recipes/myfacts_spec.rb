@@ -11,10 +11,16 @@ describe 'myfacts::default' do
   it 'installs apache2' do
     expect(chef_run).to install_package('apache2')
   end 
+  
   it 'creates index.html' do
     expect(chef_run).to \
       create_cookbook_file('/var/www/html/index.html')
   end
+  
+#  it 'check cmd' do
+#    expect(chef_run).to \
+#      run_execute('ls -al')
+#  end
 
   it 'creates health.html' do
     expect(chef_run).to \
