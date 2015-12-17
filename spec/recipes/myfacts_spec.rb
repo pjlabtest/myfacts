@@ -8,6 +8,9 @@ at_exit { ChefSpec::Coverage.report! }
 describe 'myfacts::default' do
   let(:chef_run) \
   { ChefSpec::ServerRunner.new.converge(described_recipe) }
+
+
+
   it 'installs apache2' do
     expect(chef_run).to install_package('apache2')
   end 
