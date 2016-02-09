@@ -13,7 +13,7 @@ package "curl" do
      action :install
 end
 
-package "apache2"   do
+package "apache2" do
      action :install
 end
 

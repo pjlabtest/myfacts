@@ -14,7 +14,7 @@ describe 'myfacts::default' do
   it 'installs apache2' do
     expect(chef_run).to install_package('apache2')
   end 
-  
+
   it 'creates index.html' do
     expect(chef_run).to \
       create_cookbook_file('/var/www/html/index.html')
