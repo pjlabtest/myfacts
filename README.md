@@ -8,6 +8,8 @@ TODO: List your supported platforms.
 
 ## Attributes
 
+## Custom Attributes
+
 <table>
   <tr>
     <th>Key</th>
