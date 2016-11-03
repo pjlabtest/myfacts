@@ -7,11 +7,11 @@
 # All rights reserved - Do Not Redistribute
 #
 
-include_recipe 'apt'
+#include_recipe 'apt'
 
-package "curl" do
-     action :install
-end
+# package "curl" do
+#      action :install
+# end
 
 package "apache2" do
      action :install
@@ -50,5 +50,8 @@ end
 template '/tmp/foo.txt' do
   not_if 'grep text /tmp/foo.txt'
 end
+
+
+
 
 
