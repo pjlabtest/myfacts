@@ -9,8 +9,6 @@ describe 'myfacts::default' do
   let(:chef_run) \
   { ChefSpec::ServerRunner.new.converge(described_recipe) }
 
-
-
   it 'installs apache2' do
     expect(chef_run).to install_package('apache2')
   end 
@@ -34,6 +32,16 @@ describe 'myfacts::default' do
     expect(chef_run).to \
       create_cookbook_file('/var/www/html/test.html')
   end
+
+  it 'creates test1.html' do
+    expect(chef_run).to \
+      create_cookbook_file('/var/www/html/test1.html')
+  end
+
+  it 'starts a service apache2' do
+    expect(chef_run).to start_service('apache2')
+  end
+
 
   before do
     stub_command("grep text /tmp/foo.txt").and_return(true)
