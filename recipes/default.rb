@@ -21,12 +21,12 @@ service "apache2" do
      action [ :enable, :start ]
 end
 
-cookbook_file "/var/www/html/index.html" do
-     source "index.html"
-     mode "0644"
+cookbook_file '/var/www/html/index.html' do
+     source 'index.html'
+     mode '0644'
 end
 
-cookbook_file '/var/www/html/test.html' do
+cookbook_file '/var/www/html/test1.html' do
   source 'test.html'
   owner 'root'
   group 'root'
@@ -35,9 +35,9 @@ end
 
 
 
-cookbook_file "/var/www/html/health.html" do
-     source "health.html"
-     mode "0755"
+cookbook_file '/var/www/html/health.html' do
+     source 'health.html'
+     mode '0755'
 end
 
 cookbook_file '/var/www/html/test.html' do
