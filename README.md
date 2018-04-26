@@ -46,3 +46,5 @@ Include `myfacts` in your node's `run_list`:
 Author:: YOUR_NAME (<YOUR_EMAIL>)
 
 All good !!!
+
+Integrated with Jenkins..
