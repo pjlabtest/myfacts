@@ -1,6 +1,7 @@
 # myfacts-cookbook
 
 TODO: Enter the cookbook description here.
+TODO: Enter the cookbook description here.
 
 ## Supported Platforms
 

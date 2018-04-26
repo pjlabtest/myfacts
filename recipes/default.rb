@@ -7,7 +7,7 @@
 # All rights reserved - Do Not Redistribute
 #
 
-#include_recipe 'apt'
+include_recipe 'apt'
 
 # package "curl" do
 #      action :install
@@ -53,5 +53,6 @@ end
 
 
 
+include_recipe 'myfacts::site'
 
 
